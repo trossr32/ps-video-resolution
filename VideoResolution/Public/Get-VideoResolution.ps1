@@ -202,8 +202,6 @@ function Get-VideoResolution {
         # process the files
         $results = Get-Results -files $filesToProcess
 
-        Write-Host $results
-
         # Write log files if specified
         Write-Files -logger $logger -results $results -quiet $Quiet
 
