@@ -1,6 +1,8 @@
 # VideoResolution
 A Powershell module that probes video files for their resolution and output results to host and optionally to log files.
 
+Available in the [Powershell Gallery](https://www.powershellgallery.com/packages/VideoResolution)
+
 ## Description
 Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size.
 
