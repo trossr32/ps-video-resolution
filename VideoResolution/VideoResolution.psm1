@@ -11,12 +11,12 @@
     Where-Object { $_.Name -like '*.ps1' -and $_.Name -notlike '__*' -and $_.Name -notlike '*.Tests*' } | 
     % {
         # dot-source script
-        Write-Host "Loading $($_.BaseName)"
+        #Write-Host "Loading $($_.BaseName)"
         . $_
 
         # export functions in the `Public` folder
         if ((Split-Path($_.Directory) -Leaf) -Eq 'Public') {
-            Write-Host "Exporting $($_.BaseName)"
+            #Write-Host "Exporting $($_.BaseName)"
 
             Export-ModuleMember $_.BaseName
         }
