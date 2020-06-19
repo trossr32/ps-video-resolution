@@ -1,5 +1,5 @@
 <#
-.Description
+.DESCRIPTION
 Logger class containing config for writing log files
 
 .Example

@@ -1,11 +1,13 @@
-<# 
-.Description
-Download a built version of ffmpeg in aa zip archive for the appropriate CPU architecture.
-Extract the archive, save ffmpeg files to directory C:\ffmpeg\bin, then clean up the archive.
-.Parameter quiet 
-Silence verbose writing to host
-#>
 Function Add-FFmpeg($quiet) {
+    <# 
+    .DESCRIPTION
+    Download a built version of ffmpeg in aa zip archive for the appropriate CPU architecture.
+    Extract the archive, save ffmpeg files to directory C:\ffmpeg\bin, then clean up the archive.
+    
+    .PARAMETER quiet 
+    Silence verbose writing to host
+    #>
+
     [string]$Architecture = ""
     
     $SaveFFMPEGTempLocation = $ffmpegLocalPath + "ffmpeg-update.zip"
@@ -27,7 +29,7 @@ Function Add-FFmpeg($quiet) {
 
     $ExtractedFFMPEGTempLocation = $ffmpegLocalPath + "ffmpeg-update\" + ($DownloadFFMPEGStatic.Split('/')[-1].Replace('.zip', '')) + "\"
 
-    #Check if the FFMPEG Path in C:\ exists if not create it
+    # Check if the FFMPEG Path in C:\ exists if not create it
     if (-Not $quiet) {
         Write-Host "Detecting if FFMPEG directory already exists"
     }

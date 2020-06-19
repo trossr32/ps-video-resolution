@@ -1,14 +1,15 @@
-<# 
-.Description
-Checks whether ffmpeg is installed in the environment PATH or in a C:\ffmpeg\bin directory.
-If ffmpeg is not found in either location, the user will be prompted to download ffmpeg which will be saved in the 
-C:\ffmpeg\bin directory.
-.Parameter quiet 
-Silence verbose writing to host
-.Outputs
-ffmpeg location identifier, 'path' or 'file'
-#>
 Function Search-FFmpeg($quiet) {
+    <# 
+    .DESCRIPTION
+    Checks whether ffmpeg is installed in the environment PATH or in a C:\ffmpeg\bin directory.
+    If ffmpeg is not found in either location, the user will be prompted to download ffmpeg which will be saved in the 
+    C:\ffmpeg\bin directory.
+    .PARAMETER quiet 
+    Silence verbose writing to host
+    .OUTPUTS
+    ffmpeg location identifier, 'path' or 'file'
+    #>
+
     if ($null -eq (Get-Command "ffmpeg.exe" -ErrorAction SilentlyContinue)) { 
         if ([System.IO.File]::Exists($ffmpegLocalExe)) {
             return 'local'

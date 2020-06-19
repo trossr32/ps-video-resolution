@@ -1,10 +1,11 @@
-<# 
-.Description
-Asks the user if they want to create log files and instantiates an instance of the Logger class from the response
-.Outputs
-Logger class
-#>
-Function Get-Logger() {
+Function Get-Logger {
+    <# 
+    .DESCRIPTION
+    Asks the user if they want to create log files and instantiates an instance of the Logger class from the response
+    .OUTPUTS
+    Logger class
+    #>
+
     $header = "Results will be written to this shell. If you'd like to create log files you will be prompted for the directory to save the files to."
     $question = "Would you also like to create a log file?"
 

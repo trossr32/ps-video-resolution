@@ -1,14 +1,15 @@
-<# 
-.Description
-Interrogates the logger class. If log files should be written, then create them according to the Logger config
-.Parameter logger 
-The logger class instance
-.Parameter results 
-Processed files result ArrayList
-.Parameter quiet 
-Silence verbose writing to host
-#>
 Function Write-Files($logger, $results, $quiet) {
+    <# 
+    .DESCRIPTION
+    Interrogates the logger class. If log files should be written, then create them according to the Logger config
+    .PARAMETER logger 
+    The logger class instance
+    .PARAMETER results 
+    Processed files result ArrayList
+    .PARAMETER quiet 
+    Silence verbose writing to host
+    #>
+
     # if we don't want to write logs then gtfo
     if (-Not $logger.WriteLogs) {
         return

@@ -1,12 +1,13 @@
-<# 
-.Description
-Process all files and return the results collection
-.Parameter files 
-Collection of files to be processed
-.Outputs
-Processed files result ArrayList
-#>
 Function Get-Results($files) {
+    <# 
+    .DESCRIPTION
+    Process all files and return the results collection
+    .PARAMETER files 
+    Collection of files to be processed
+    .OUTPUTS
+    Processed files result ArrayList
+    #>
+
     [System.Collections.ArrayList]$results = @()
 
     $writeProgress = ($files.Count -gt 1)

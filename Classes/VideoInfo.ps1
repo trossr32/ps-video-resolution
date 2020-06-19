@@ -1,5 +1,5 @@
 <#
-.Description
+.DESCRIPTION
 VideoInfo class containing resolution and file size information retrieved from ffprobe
 
 .Example

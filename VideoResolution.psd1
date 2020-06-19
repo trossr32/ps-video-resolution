@@ -98,13 +98,13 @@
             Tags       = 'Video', 'Resolution', 'FFMpeg'
 
             # A URL to the license for this module.
-            LicenseUri = 'https://github.com/trossr32/VideoResolution/blob/master/LICENSE'
+            LicenseUri = 'https://github.com/trossr32/ps-video-resolution/blob/master/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri = 'https://github.com/trossr32/VideoResolution'
+            ProjectUri = 'https://github.com/trossr32/ps-video-resolution'
 
             # A URL to an icon representing this module.
-            IconUri    = 'https://github.com/trossr32/VideoResolution/blob/master/assets/images/ps7_icon_88.png'
+            IconUri    = 'https://github.com/trossr32/ps-video-resolution/blob/master/assets/images/ps7_icon_88.png'
 
             # ReleaseNotes of this module
             # ReleaseNotes = ''
@@ -123,7 +123,7 @@
     } # End of PrivateData hashtable
 
     # HelpInfo URI of this module
-    HelpInfoURI          = 'https://github.com/trossr32/VideoResolution'
+    HelpInfoURI          = 'https://github.com/trossr32/ps-video-resolution'
 
     # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
     # DefaultCommandPrefix = ''
