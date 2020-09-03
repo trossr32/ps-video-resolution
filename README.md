@@ -1,4 +1,8 @@
 # VideoResolution
+
+[![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/VideoResolution?label=VideoResolution&logo=powershell&style=plastic)](https://www.powershellgallery.com/packages/VideoResolution)
+[![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/VideoResolution?style=plastic)](https://www.powershellgallery.com/packages/VideoResolution)
+
 A Powershell module that probes video files for their resolution and output results to host and optionally to log files.
 
 Available in the [Powershell Gallery](https://www.powershellgallery.com/packages/VideoResolution)
