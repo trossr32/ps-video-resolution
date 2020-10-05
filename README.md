@@ -89,3 +89,9 @@ PS C:\> "C:\Videos\ExampleFile1.mkv","C:\Videos\ExampleFile2.mkv" | Get-VideoRes
 A check is made to see whether ffmpeg is installed in the environment PATH or in a C:\ffmpeg\bin directory.
 If ffmpeg is not found in either location, the user will be prompted to download ffmpeg which will be saved in the 
 C:\ffmpeg\bin directory.
+
+## Contribute
+
+Please raise an issue if you find a bug or want to request a new feature, or create a pull request to contribute.
+
+<a href='https://ko-fi.com/K3K22CEIT' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
