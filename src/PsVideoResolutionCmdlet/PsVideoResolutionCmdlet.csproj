@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Version>2.0.0</Version>
+    <AssemblyName>VideoResolution</AssemblyName>
+    <RootNamespace>VideoResolution</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Rob\GitHub\ps-video-resolution\src\PsVideoResolutionCmdlet\VideoResolution.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="ByteSize" Version="2.1.1" />
+    <PackageReference Include="PowerShellStandard.Library" Version="7.0.0-preview.1" />
+    <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
+    <PackageReference Include="Xabe.FFmpeg" Version="5.2.6" />
+    <PackageReference Include="Xabe.FFmpeg.Downloader" Version="5.2.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PsVideoResolution.Core\PsVideoResolution.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="VideoResolution.psd1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="VideoResolution.dll-Help.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
