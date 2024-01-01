@@ -142,12 +142,6 @@ public class GetVideoResolutionCmdlet : PSCmdlet
 
     internal void ProcessInternal()
     {
-        var path = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location);
-
-        FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, path);
-
-        FFmpeg.SetExecutablesPath(path);
-
         BeginProcessing();
         ProcessRecord();
         EndProcessing();
