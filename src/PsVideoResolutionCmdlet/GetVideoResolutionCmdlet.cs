@@ -21,7 +21,7 @@ namespace VideoResolution;
 /// <para type="synopsis">Probe video files for their resolution and output results to host and optionally to log files</para>
 /// </summary>
 /// <para type="description">
-/// Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size.
+/// Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size. ffmpeg must be installed.
 /// </para>
 /// <para type="description">
 /// Can be run against:
@@ -69,11 +69,6 @@ namespace VideoResolution;
 ///     <para type="example">Process the piped files array, writing json and log files to the supplied output directory.</para>
 ///     <code>PS C:\> "C:\Videos\ExampleFile1.mkv","C:\Videos\ExampleFile2.mkv" | Get-VideoResolution -OutputDirectory "C:\Videos\Logs"</code>
 /// </example>
-/// <para type="notes">
-/// A check is made to see whether ffmpeg is installed in the environment PATH or in a C:\ffmpeg\bin directory.
-/// If ffmpeg is not found in either location, the user will be prompted to download ffmpeg which will be saved in the 
-/// C:\ffmpeg\bin directory.
-/// </para>
 /// <para type="link" uri="(https://github.com/trossr32/ps-video-resolution)">[Github]</para>
 [Cmdlet(VerbsCommon.Get, "VideoResolution", HelpUri = "https://github.com/trossr32/ps-video-resolution")]
 public class GetVideoResolutionCmdlet : PSCmdlet
