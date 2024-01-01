@@ -1,0 +1,41 @@
+name: Build and test
+on: 
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'src/**'
+      - '.github\workflows\build-and-test.yml'
+  
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '8.*'
+  
+jobs:
+  build-and-test:
+    name: build-and-test-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Setup FFmpeg
+      uses: FedericoCarboni/setup-ffmpeg@v2
+      id: setup-ffmpeg
+
+    - name: Install dependencies
+      run: dotnet restore "src/PsVideoResolutionCmdlet.sln"
+      
+    - name: Build
+      run: dotnet build "src/PsVideoResolutionCmdlet.sln" --configuration Release --no-restore
+    
+    - name: Test
+      run: dotnet test "src/PsVideoResolutionCmdlet.Tests/PsVideoResolutionCmdlet.Tests.csproj" --no-restore --verbosity normal

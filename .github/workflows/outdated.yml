@@ -1,0 +1,22 @@
+name: Outdated package checks
+
+# Run workflow on pull request to the main branch
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [ master ]
+  
+  workflow_dispatch:
+
+env:
+  SOLUTION_PATH: 'src/PsVideoResolutionCmdlet.sln'
+
+jobs:
+  outdated-packages-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: trossr32/outdated-packages-action@v1.1.0
+        with:
+          use-dotnet-outdated: true
+          dotnet-solution-path: ${{ env.SOLUTION_PATH }}
