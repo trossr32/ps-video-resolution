@@ -13,9 +13,9 @@ namespace PsVideoResolutionCmdlet.Tests;
 public partial class Tests
 {
     private const string Assets = nameof(Assets);
-    private const string Nested = @"Assets\Nested";
+    private static readonly string Nested = Path.Combine("Assets", "Nested");
     private const string File = "sample.mp4";
-    private const string OutputDirectory = @"C:\Temp\VideoResolutionCmdletTests";
+    private const string OutputDirectory = "VideoResolutionCmdletTests_Output";
 
     private const string Resolution = "320x240";
     private const double Size = 0.543879d;

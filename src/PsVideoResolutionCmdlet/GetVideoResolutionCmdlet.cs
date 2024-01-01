@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using System.Management.Automation.Host;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using PsVideoResolution.Core.Formatters;
 using PsVideoResolution.Core.Models;
 using Xabe.FFmpeg;
-using Xabe.FFmpeg.Downloader;
 using Xabe.FFmpeg.Exceptions;
 
 [assembly: InternalsVisibleTo("PsVideoResolutionCmdlet.Tests")]
@@ -273,9 +269,9 @@ public class GetVideoResolutionCmdlet : PSCmdlet
 
             WriteOutput(results);
         }
-        catch (FFmpegNotFoundException)
+        catch (FFmpegNotFoundException ffe)
         {
-            FFMpegMissing();
+            ThrowTerminatingError(new ErrorRecord(ffe, null, ErrorCategory.ResourceUnavailable, null));
         }
         catch (Exception e)
         {
@@ -321,47 +317,5 @@ public class GetVideoResolutionCmdlet : PSCmdlet
         var lines = results.GetHostOutput();
 
         WriteObject(lines);
-    }
-
-    private void FFMpegMissing()
-    {
-        WriteWarning("FFMpeg installation not found. Would you like to download it now? (FFMpeg latest official release will be downloaded to this module's execution directory).");
-
-        var choices = new BindingList<ChoiceDescription>
-        {
-            new("yes"),
-            new("no")
-        };
-
-        var response = Host.UI.PromptForChoice("FFMpeg installation not found", "Would you like to download it now?", choices, 1);
-
-        if (response is not 0)
-            return;
-
-        try
-        {
-            var installProgress = new Progress<ProgressInfo>();
-
-            installProgress.ProgressChanged += (sender, info) =>
-            {
-                WriteProgress(new ProgressRecord(1, "Downloading FFMpeg...", $"{info.DownloadedBytes} / {info.TotalBytes}"));
-            };
-
-            WriteVerbose("Setting FFMpeg executables path to this module's execution directory.");
-
-            FFmpeg.SetExecutablesPath(Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location));
-
-            FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, installProgress);
-
-            WriteProgress(new ProgressRecord(1, "Downloading FFMpeg...", "Completed"));
-        }
-        catch (Exception e)
-        {
-            WriteError(new ErrorRecord(e, null, ErrorCategory.InvalidOperation, null));
-
-            return;
-        }
-
-        EndProcessing();
     }
 }
