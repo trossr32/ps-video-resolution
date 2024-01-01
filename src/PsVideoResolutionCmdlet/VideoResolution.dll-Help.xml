@@ -17,7 +17,7 @@
 		</command:details>
 		<maml:description>
 			<maml:para>
-				Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size.
+				Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size. ffmpeg must be installed.
 			</maml:para>
 			<maml:para>
 				Can be run against:

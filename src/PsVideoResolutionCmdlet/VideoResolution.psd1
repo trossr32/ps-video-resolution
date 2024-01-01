@@ -95,7 +95,7 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = 'Video', 'Resolution', 'FFMpeg', 'FFProbe'
+            Tags       = 'Video', 'Resolution', 'ffmpeg', 'ffprobe'
 
             # A URL to the license for this module.
             LicenseUri = 'https://github.com/trossr32/ps-video-resolution/blob/master/LICENSE'

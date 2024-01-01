@@ -8,7 +8,7 @@ A Powershell module that probes video files for their resolution and output resu
 Available in the [Powershell Gallery](https://www.powershellgallery.com/packages/VideoResolution)
 
 ## Description
-Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size.
+Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size. ffmpeg must be installed.
 
 > [!NOTE]
 > ffmpeg must be installed for this module to work. It can be installed using [chocolatey](https://chocolatey.org/packages/ffmpeg) or [scoop](https://scoop.sh/) or downloaded from [ffmpeg.org](https://ffmpeg.org/download.html).

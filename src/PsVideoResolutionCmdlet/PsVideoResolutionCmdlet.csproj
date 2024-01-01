@@ -4,6 +4,7 @@
     <Version>2.0.0</Version>
     <AssemblyName>VideoResolution</AssemblyName>
     <RootNamespace>VideoResolution</RootNamespace>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Users\Rob\GitHub\ps-video-resolution\src\PsVideoResolutionCmdlet\VideoResolution.xml</DocumentationFile>
