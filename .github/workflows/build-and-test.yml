@@ -23,6 +23,10 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
+    
+    - name: Setup FFmpeg
+      uses: FedericoCarboni/setup-ffmpeg@v2
+      id: setup-ffmpeg
 
     - name: Install dependencies
       run: dotnet restore "src/PsVideoResolutionCmdlet.sln"
