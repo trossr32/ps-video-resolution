@@ -3,7 +3,10 @@ on:
   pull_request:
     branches:
       - master
-
+    paths:
+      - 'src/**'
+      - '.github\workflows\build-and-test.yml'
+  
   workflow_dispatch:
 
 env:
