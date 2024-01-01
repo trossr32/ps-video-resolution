@@ -1,10 +1,10 @@
 function Get-VideoResolution {
     <#
     .SYNOPSIS
-    Probe video files for their resolution and output results to host and optionally to log files
+    Probe video files using ffmpeg (ffprobe) for their resolution and output results to host and optionally to log files
 
     .DESCRIPTION
-    Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size.
+    Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size. ffmpeg must be installed.
 
     Can be run against: 
     

@@ -76,7 +76,7 @@ namespace VideoResolution;
 /// </para>
 /// <para type="link" uri="(https://github.com/trossr32/ps-video-resolution)">[Github]</para>
 [Cmdlet(VerbsCommon.Get, "VideoResolution", HelpUri = "https://github.com/trossr32/ps-video-resolution")]
-public class InvokeVideoResolutionCmdlet : PSCmdlet
+public class GetVideoResolutionCmdlet : PSCmdlet
 {
     #region Parameters
 
@@ -147,13 +147,19 @@ public class InvokeVideoResolutionCmdlet : PSCmdlet
 
     internal void ProcessInternal()
     {
+        var path = Path.GetDirectoryName(Assembly.GetEntryAssembly()?.Location);
+
+        FFmpegDownloader.GetLatestVersion(FFmpegVersion.Official, path);
+
+        FFmpeg.SetExecutablesPath(path);
+
         BeginProcessing();
         ProcessRecord();
         EndProcessing();
     }
 
     /// <summary>
-    /// Implements the <see cref="BeginProcessing"/> method for <see cref="InvokeVideoResolutionCmdlet"/>.
+    /// Implements the <see cref="BeginProcessing"/> method for <see cref="GetVideoResolutionCmdlet"/>.
     /// Initialise temporary containers
     /// </summary>
     protected override void BeginProcessing()
@@ -163,7 +169,7 @@ public class InvokeVideoResolutionCmdlet : PSCmdlet
     }
 
     /// <summary>
-    /// Implements the <see cref="ProcessRecord"/> method for <see cref="InvokeVideoResolutionCmdlet"/>.
+    /// Implements the <see cref="ProcessRecord"/> method for <see cref="GetVideoResolutionCmdlet"/>.
     /// Validates input directory/directories exist and builds a list of directories to process in the EndProcessing method.
     /// </summary>
     protected override void ProcessRecord()
@@ -247,7 +253,7 @@ public class InvokeVideoResolutionCmdlet : PSCmdlet
     }
 
     /// <summary>
-    /// Implements the <see cref="EndProcessing"/> method for <see cref="InvokeVideoResolutionCmdlet"/>.
+    /// Implements the <see cref="EndProcessing"/> method for <see cref="GetVideoResolutionCmdlet"/>.
     /// Perform the folder flattening on the configured directories.
     /// </summary>
     protected override void EndProcessing()

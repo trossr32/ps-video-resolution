@@ -10,6 +10,9 @@ Available in the [Powershell Gallery](https://www.powershellgallery.com/packages
 ## Description
 Uses ffmpeg (ffprobe) to interrogate video files and retrieve the resolution and file size.
 
+> [!NOTE]
+> ffmpeg must be installed for this module to work. It can be installed using [chocolatey](https://chocolatey.org/packages/ffmpeg) or [scoop](https://scoop.sh/) or downloaded from [ffmpeg.org](https://ffmpeg.org/download.html).
+
 Can be run against: 
 
 * all files in an input directory supplied as an `-InputDirectory` parameter.
@@ -99,10 +102,6 @@ Process the piped files array, writing json and log files to the supplied output
 
 ```powershell
 PS C:\> "C:\Videos\ExampleFile1.mkv","C:\Videos\ExampleFile2.mkv" | Get-VideoResolution -OutputDirectory "C:\Videos\Logs"
-```
-
-## Notes
-If ffmpeg is not installed, the user will be prompted to download ffmpeg to the application's execution directory.
 
 ## Contribute
 

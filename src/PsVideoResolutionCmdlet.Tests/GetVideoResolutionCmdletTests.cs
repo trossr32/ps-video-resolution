@@ -22,7 +22,6 @@ public partial class Tests
     private static readonly string SizeAsMb = $"{Size}Mb";
 
     [SetUp] public void Setup() => DeleteOutputDirectory();
-
     [TearDown] public void TearDown() => DeleteOutputDirectory();
 
     [TestCase(false, false)]
@@ -125,7 +124,7 @@ public partial class Tests
     {
         var expected = Path.Combine(Assets, File);
 
-        var results = ExecuteCmdlet(new InvokeVideoResolutionCmdlet
+        var results = ExecuteCmdlet(new GetVideoResolutionCmdlet
             {
                 File = expected,
                 Json = true
@@ -155,7 +154,7 @@ public partial class Tests
     {
         var expected = Path.Combine(Assets, File);
 
-        var results = ExecuteCmdlet(new InvokeVideoResolutionCmdlet
+        var results = ExecuteCmdlet(new GetVideoResolutionCmdlet
             {
                 File = expected,
                 PSObject = true
@@ -188,7 +187,7 @@ public partial class Tests
     /// <param name="recursive"></param>
     /// <returns></returns>
     private static List<object> ExecuteCmdlet(string file, string inputDirectory = null, string outputDirectory = null, bool recursive = false) =>
-        ExecuteCmdlet(new InvokeVideoResolutionCmdlet
+        ExecuteCmdlet(new GetVideoResolutionCmdlet
         {
             InputDirectory = inputDirectory,
             OutputDirectory = outputDirectory,
@@ -204,7 +203,7 @@ public partial class Tests
     /// <param name="outputDirectory"></param>
     /// <returns></returns>
     private static List<object> ExecuteCmdlet(List<string> files, string outputDirectory = null) =>
-        ExecuteCmdlet(new InvokeVideoResolutionCmdlet
+        ExecuteCmdlet(new GetVideoResolutionCmdlet
         {
             InputDirectory = null,
             OutputDirectory = outputDirectory,
@@ -218,7 +217,7 @@ public partial class Tests
     /// </summary>
     /// <param name="cmdlet"></param>
     /// <returns></returns>
-    private static List<object> ExecuteCmdlet(InvokeVideoResolutionCmdlet cmdlet)
+    private static List<object> ExecuteCmdlet(GetVideoResolutionCmdlet cmdlet)
     {
         var psEmulator = new PowershellEmulator();
 
