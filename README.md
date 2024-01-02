@@ -102,6 +102,7 @@ Process the piped files array, writing json and log files to the supplied output
 
 ```powershell
 PS C:\> "C:\Videos\ExampleFile1.mkv","C:\Videos\ExampleFile2.mkv" | Get-VideoResolution -OutputDirectory "C:\Videos\Logs"
+```
 
 ## Contribute
 
